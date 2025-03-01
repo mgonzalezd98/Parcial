@@ -22,4 +22,24 @@ Mostrar el polígono de mi barrio
 
 # Solución
 Buscar geojson de terceros
-Cargar el geojson usando async 
+Cargar el geojson usando async await
+
+# Problema 5
+
+Crear un boton y asignarle un manejador de eventos
+
+# Problema 6
+
+¿Dónde está el geojson de los árboles de Bogotá?
+Están en https://datosabiertos.bogota.gov.co/dataset/censo-arbolado-urbano
+
+# Problema 7
+
+Crear el Bounding Box de mi barrio
+
+# Problema 8
+
+Descargar los datos filtrados desde la API (Servicio REST)
+
+# Solución
+Utilizar python
