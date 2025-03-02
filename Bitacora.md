@@ -26,7 +26,7 @@ Cargar el geojson usando async await
 
 # Problema 5
 
-Crear un boton y asignarle un manejador de eventos
+Crear un botón y asignarle un manejador de eventos
 
 # Problema 6
 
@@ -43,3 +43,16 @@ Descargar los datos filtrados desde la API (Servicio REST)
 
 # Solución
 Utilizar python
+
+# Problema 9
+
+Buscar el geojson de los accidentes de mi barrio y descargarlos, se encontraron en datos abiertos.
+
+# Problema 10
+
+Descargar los datos filtrados desde la API con phyton.
+
+# Problema 11
+
+Crear un botón y asignarle un manejador de eventos
+
