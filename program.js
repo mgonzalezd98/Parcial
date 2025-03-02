@@ -23,32 +23,33 @@ async function loadpolygon(){
 
 loadpolygon();
 
+// Variables para almacenar las capas de árboles y siniestros
+let treeLayer = null;
+let siniestrosLayer = null;
+
 let btnTrees = document.getElementById("btnTrees");
 
-btnTrees.addEventListener('click', 
-    async function(){
+btnTrees.addEventListener('click', async function () {
+    if (treeLayer) {
+        map.removeLayer(treeLayer);
+        treeLayer = null; // Elimina la referencia para poder cargar nuevamente si es necesario
+    } else {
         let response = await fetch("arboles_Colon.geojson");
-        let datos = (await response.json());
-        //Agregar la capa al mapa
-        L.geoJSON(
-            datos,
-            {
-                pointToLayer: (feature, latlong)=>{
-
-                    return L.circleMarker(latlong, {
-                        radius:3,
-                        fillColor:'green',
-                        weight:1,
-                        opacity:1,
-                        fillOpacity: 0.8,
-                    })
-
-                }
+        let datos = await response.json();
+        
+        treeLayer = L.geoJSON(datos, {
+            pointToLayer: (feature, latlong) => {
+                return L.circleMarker(latlong, {
+                    radius: 3,
+                    fillColor: 'green',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8,
+                });
             }
-        ).addTo(map);
-
+        }).addTo(map);
     }
-    
+}
 )
 
 
@@ -109,28 +110,25 @@ function  generatePDF(distances, totalTrees){
 
 let btnSiniestros = document.getElementById("btnSiniestros");
 
-btnSiniestros.addEventListener('click', 
-    async function(){
+btnSiniestros.addEventListener('click', async function () {
+    if (siniestrosLayer) {
+        map.removeLayer(siniestrosLayer);
+        siniestrosLayer = null; // Elimina la referencia para poder cargar nuevamente si es necesario
+    } else {
         let response = await fetch("siniestros_barrio_Colon.geojson");
-        let datos = (await response.json());
-        //Agregar la capa al mapa
-        L.geoJSON(
-            datos,
-            {
-                pointToLayer: (feature, latlong)=>{
-
-                    return L.circleMarker(latlong, {
-                        radius:3,
-                        fillColor:'red',
-                        weight:1,
-                        opacity:1,
-                        fillOpacity: 0.8,
-                    })
-
-                }
+        let datos = await response.json();
+        
+        siniestrosLayer = L.geoJSON(datos, {
+            pointToLayer: (feature, latlong) => {
+                return L.circleMarker(latlong, {
+                    radius: 3,
+                    fillColor: 'red',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8,
+                });
             }
-        ).addTo(map);
-
+        }).addTo(map);
     }
-    
+}
 )
